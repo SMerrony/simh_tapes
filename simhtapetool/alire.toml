@@ -1,0 +1,23 @@
+name = "simhtapetool"
+description = "Command-line tool to handle SimH-standard magtape images"
+version = "0.1.0-dev"
+
+authors = ["Stephen Merrony"]
+maintainers = ["Stephen Merrony <example@example.com>"]
+maintainers-logins = ["SMerrony"]
+
+executables = ["simhtapetool"]
+
+[[depends-on]]
+parse_args = "~0.9.0"
+simh_tapes = "~0.1.0-dev"
+
+[[pins]]
+simh_tapes = { path='..' }
+
+[build-profiles]
+simh_tapes = "development"
+
+[build-switches]
+development.optimization = ["-O0"]
+

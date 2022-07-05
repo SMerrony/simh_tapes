@@ -1,0 +1,11 @@
+name = "simh_tapes"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["Stephen Merrony"]
+maintainers = ["Stephen Merrony <example@example.com>"]
+maintainers-logins = ["SMerrony"]
+
+[build-switches]
+development.optimization = ["-O0"]
+
