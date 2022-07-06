@@ -1,10 +1,13 @@
 name = "simh_tapes"
-description = "Shiny new project"
+description = "Library to handle SimH Standard magnetic tape image files"
 version = "0.1.0-dev"
 
 authors = ["Stephen Merrony"]
-maintainers = ["Stephen Merrony <example@example.com>"]
+maintainers = ["Stephen Merrony <merrony@gmail.com>"]
 maintainers-logins = ["SMerrony"]
+licenses = "AGPL-3.0-or-later"
+website = "https://github.com/SMerrony/simh_tapes"
+tags = ["legacy", "magtape", "magnetic", "tape", "emulation", "simulation"]
 
 [build-switches]
 development.optimization = ["-O0"]
