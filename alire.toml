@@ -8,6 +8,7 @@ maintainers-logins = ["SMerrony"]
 licenses = "AGPL-3.0-or-later"
 website = "https://github.com/SMerrony/simh_tapes"
 tags = ["legacy", "magtape", "magnetic", "tape", "emulation", "simulation"]
+executables = ["simhtapetool"]
 
 [build-switches]
 development.optimization = ["-O0"]
