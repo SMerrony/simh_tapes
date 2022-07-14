@@ -1,6 +1,6 @@
 name = "simh_tapes"
 description = "Library to handle SimH Standard magnetic tape image files"
-version = "0.1.1-dev"
+version = "0.1.1"
 
 authors = ["Stephen Merrony"]
 maintainers = ["Stephen Merrony <merrony@gmail.com>"]
