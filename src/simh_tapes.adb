@@ -1,4 +1,4 @@
---  Copyright ©2022 Stephen Merrony
+--  Copyright ©2022,2023 Stephen Merrony
 --
 --  This program is free software: you can redistribute it and/or modify
 --  it under the terms of the GNU Affero General Public License as published
@@ -143,7 +143,8 @@ package body Simh_Tapes is
                   File_Count := File_Count + 1;
                   Result := Result & Character'Val (10) & "File" & Integer'Image (File_Count) &
                             " :" & Integer'Image (File_Size) & " bytes in" &
-                            Integer'Image (Record_Num) & " block(s)";
+                            Integer'Image (Record_Num) & " block(s), average block size:" & 
+                            Integer'Image (File_Size / Record_Num);
                   File_Size := 0;
                   Record_Num := 0;
                end if;
