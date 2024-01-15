@@ -130,7 +130,8 @@ package body Simh_Tapes is
       File_Count : Integer := -1;
       File_Size,
       Mark_Count,
-      Record_Num : Integer := 0;
+      Record_Num,
+      Last_Blocksize : Integer := 0;
       Dummy_Rec  : Mt_Rec (1 .. 32768);
    begin
       Open (File => Img_File, Mode => In_File, Name => Img_Filename);
@@ -142,9 +143,11 @@ package body Simh_Tapes is
                if File_Size > 0 then
                   File_Count := File_Count + 1;
                   Result := Result & Character'Val (10) & "File" & Integer'Image (File_Count) &
-                            " :" & Integer'Image (File_Size) & " bytes in" &
+                            ":" & Integer'Image (File_Size) & " bytes in" &
                             Integer'Image (Record_Num) & " block(s), average block size:" & 
-                            Integer'Image (File_Size / Record_Num);
+                            Integer'Image (File_Size / Record_Num) & ", last block size:" &
+                            Integer'Image (Last_Blocksize)
+                            ;
                   File_Size := 0;
                   Record_Num := 0;
                end if;
@@ -168,7 +171,8 @@ package body Simh_Tapes is
                Read_Record_Data (Img_Stream, Natural (Header), Dummy_Rec);
                Read_Meta_Data (Img_Stream, Trailer);
                if Header = Trailer then
-                  File_Size := File_Size + Integer (Header);
+                  Last_Blocksize := Integer (Header);
+                  File_Size := File_Size + Last_Blocksize;
                else
                   Result := Result & Character'Val (10) & "Non-matching trailer found.";
                end if;
